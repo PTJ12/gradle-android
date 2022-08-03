@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,14 +8,9 @@
     tools:context=".ui.fragment.HomeFragment">
 
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
+    <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:drawableLeft="@mipmap/search"
-        android:ems="10"
-        android:hint="请输入你喜欢的内容"
-        android:inputType="textPersonName" />
+        android:src="@mipmap/the_default" />
 </LinearLayout>

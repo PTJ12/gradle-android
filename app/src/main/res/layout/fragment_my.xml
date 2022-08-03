@@ -27,8 +27,10 @@
 
         <Button
             android:id="@+id/logout_btn"
-            android:layout_width="match_parent"
+            android:layout_width="187dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
             android:text="@string/logout" />
     </LinearLayout>
 
