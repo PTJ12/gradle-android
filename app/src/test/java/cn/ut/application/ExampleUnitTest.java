@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import cn.ut.application.Entity.BaseEntity;
 import cn.ut.application.Entity.InsertUser;
 import cn.ut.application.Entity.Token;
+import cn.ut.application.Entity.UserInfo;
 import cn.ut.application.network.RetrofitClient;
 import cn.ut.application.network.service.NetworkService;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -30,13 +31,24 @@ public class ExampleUnitTest {
     @Test
     public void name() {
 
+
         NetworkService service = RetrofitClient.getInstance().getService(NetworkService.class);
-        service.login("ut", "123123").subscribe(new Consumer<BaseEntity<Token>>() {
-            @Override
-            public void accept(BaseEntity<Token> tokenBaseBean) throws Throwable {
-                System.out.println(tokenBaseBean);
-            }
-        });
+//        service.login("ut", "123123").subscribe(new Consumer<BaseEntity<Token>>() {
+//            @Override
+//            public void accept(BaseEntity<Token> tokenBaseBean) throws Throwable {
+//                System.out.println(tokenBaseBean);
+//            }
+//        });
+//        while (true);
+
+
+        service.getUserInfo("Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1dCIsImNyZWF0ZWQiOjE2NTk2MDg5NjA0NzgsImV4cCI6MTY2MDIxMzc2MH0.rWgD4V3MQTLZmHXUnQC9FLv-V_cDta-iQbZSuSmT6qr-Rajs1EcdmlAIa6Z1WIK2EWDATghEi8LVyofxqUdvjQ")
+                .subscribe(new Consumer<BaseEntity<UserInfo>>() {
+                    @Override
+                    public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Throwable {
+                        System.out.println(userInfoBaseEntity);
+                    }
+                });
         while (true);
 
 //        InsertUser user = new InsertUser();

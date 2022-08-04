@@ -20,12 +20,12 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="1dp"-->
 <!--        android:background="@color/gery"/>-->
-<!--    -->
+
     <com.flyco.tablayout.CommonTabLayout
         android:id="@+id/commonTabLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#ffffff"
+        android:background="@color/gery"
         tl:tl_iconHeight="27dp"
         tl:tl_iconWidth="27dp"
         tl:tl_indicator_color="#d81e06"

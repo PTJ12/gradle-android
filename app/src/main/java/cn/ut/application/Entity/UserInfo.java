@@ -2,31 +2,35 @@
   * Copyright 2022 bejson.com 
   */
 package cn.ut.application.Entity;
+import java.util.List;
+import java.util.Date;
 
 /**
- * Auto-generated: 2022-07-31 8:37:49
+ * Auto-generated: 2022-08-04 18:37:50
  *
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
  */
 public class UserInfo {
 
-    private long id;
+    private int id;
     private String username;
+    private String nickname;
     private long phone;
     private String password;
+    private List<Roles> roles;
     private boolean enable;
-    private String createTime;
-    private String updateTime;
+    private Date create_time;
+    private Date update_time;
     private boolean enabled;
+    private List<Authorities> authorities;
     private boolean accountNonLocked;
-    private boolean credentialsNonExpired;
     private boolean accountNonExpired;
-    private String authorities;
-    public void setId(long id) {
+    private boolean credentialsNonExpired;
+    public void setId(int id) {
          this.id = id;
      }
-     public long getId() {
+     public int getId() {
          return id;
      }
 
@@ -35,6 +39,13 @@ public class UserInfo {
      }
      public String getUsername() {
          return username;
+     }
+
+    public void setNickname(String nickname) {
+         this.nickname = nickname;
+     }
+     public String getNickname() {
+         return nickname;
      }
 
     public void setPhone(long phone) {
@@ -51,6 +62,13 @@ public class UserInfo {
          return password;
      }
 
+    public void setRoles(List<Roles> roles) {
+         this.roles = roles;
+     }
+     public List<Roles> getRoles() {
+         return roles;
+     }
+
     public void setEnable(boolean enable) {
          this.enable = enable;
      }
@@ -58,18 +76,18 @@ public class UserInfo {
          return enable;
      }
 
-    public void setCreateTime(String createTime) {
-         this.createTime = createTime;
+    public void setCreate_time(Date create_time) {
+         this.create_time = create_time;
      }
-     public String getCreateTime() {
-         return createTime;
+     public Date getCreate_time() {
+         return create_time;
      }
 
-    public void setUpdateTime(String updateTime) {
-         this.updateTime = updateTime;
+    public void setUpdate_time(Date update_time) {
+         this.update_time = update_time;
      }
-     public String getUpdateTime() {
-         return updateTime;
+     public Date getUpdate_time() {
+         return update_time;
      }
 
     public void setEnabled(boolean enabled) {
@@ -79,18 +97,18 @@ public class UserInfo {
          return enabled;
      }
 
+    public void setAuthorities(List<Authorities> authorities) {
+         this.authorities = authorities;
+     }
+     public List<Authorities> getAuthorities() {
+         return authorities;
+     }
+
     public void setAccountNonLocked(boolean accountNonLocked) {
          this.accountNonLocked = accountNonLocked;
      }
      public boolean getAccountNonLocked() {
          return accountNonLocked;
-     }
-
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
-         this.credentialsNonExpired = credentialsNonExpired;
-     }
-     public boolean getCredentialsNonExpired() {
-         return credentialsNonExpired;
      }
 
     public void setAccountNonExpired(boolean accountNonExpired) {
@@ -100,11 +118,11 @@ public class UserInfo {
          return accountNonExpired;
      }
 
-    public void setAuthorities(String authorities) {
-         this.authorities = authorities;
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+         this.credentialsNonExpired = credentialsNonExpired;
      }
-     public String getAuthorities() {
-         return authorities;
+     public boolean getCredentialsNonExpired() {
+         return credentialsNonExpired;
      }
 
 }

@@ -68,6 +68,7 @@ public class LoginActivity extends BaseActivity {
                     //将token存到sp_ut.xml文件
                     saveStringToSp("token", token);
                     navigateTo(HomePageActivity.class);
+                    LoginActivity.this.finish();
                     showToastSync("登录成功");
                 }else {
                     showToastSync("登录失败");

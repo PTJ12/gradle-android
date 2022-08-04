@@ -29,11 +29,14 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void initView();
 
+    protected abstract void initData();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(getLayoutId(), container, false);
         initView();
+        initData();
         unbinder = ButterKnife.bind(this, contentView);
         return contentView;
     }
@@ -88,4 +91,5 @@ public abstract class BaseFragment extends Fragment {
         return sp.getString(key, "");
 
     }
+
 }

@@ -6,10 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.MyFragment">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="800dp">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:orientation="vertical"
+            android:background="#344261">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:text="我的"/>
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView4"
