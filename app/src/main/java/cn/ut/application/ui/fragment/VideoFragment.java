@@ -1,26 +1,25 @@
 package cn.ut.application.ui.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.ut.application.Entity.BaseEntity;
+import cn.ut.application.Entity.UserInfo;
 import cn.ut.application.Entity.Video;
 import cn.ut.application.R;
 import cn.ut.application.adapter.VideoAdapter;
+import cn.ut.application.network.RetrofitClient;
+import cn.ut.application.network.service.NetworkService;
+import cn.ut.application.ui.base.BaseFragment;
+import io.reactivex.rxjava3.functions.Consumer;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
-public class VideoFragment extends Fragment {
-
+public class VideoFragment extends BaseFragment {
 
 
     private String title;
@@ -31,26 +30,58 @@ public class VideoFragment extends Fragment {
         return fragment;
     }
 
+    private RecyclerView recyclerView;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_video, container, false);
-        RecyclerView recyclerView = v.findViewById(R.id.recyclerView);
+    protected int getLayoutId() {
+        return R.layout.fragment_video;
+    }
+
+    @Override
+    protected void initView() {
+//        showToast(title);
+        recyclerView = find(R.id.recyclerView);
         //线性布局管理器
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         //设置为垂直排列
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
-        List<Video> datas = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            Video video = new Video();
-            video.setTitle("测试数据-" + i + 1);
-            datas.add(video);
-        }
-        VideoAdapter videoAdapter = new VideoAdapter(getActivity(), datas);
-        recyclerView.setAdapter(videoAdapter);
-        return v;
+    }
+
+    @Override
+    protected void initData() {
+        NetworkService networkService = RetrofitClient.getInstance().getService(NetworkService.class);
+        String token = getActivity().getSharedPreferences("sp_ut", MODE_PRIVATE).getString("token", "");
+        System.out.println(token);
+        networkService.getUserInfo(token).subscribe(new Consumer<BaseEntity<UserInfo>>() {
+            @Override
+            public void accept(BaseEntity<UserInfo> userInfoBaseEntity) throws Throwable {
+                UserInfo userInfo = userInfoBaseEntity.getObject();
+                if (userInfo != null) {
+
+                    String username = userInfo.getUsername();
+
+
+                    List<Video> datas = new ArrayList<>();
+                    for (int i = 0; i < 8; i++) {
+                        Video video = new Video();
+                        video.setTitle(username);
+                        datas.add(video);
+                    }
+
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            VideoAdapter videoAdapter = new VideoAdapter(getActivity(), datas);
+                            recyclerView.setAdapter(videoAdapter);
+                        }
+                    });
+
+                }
+
+
+            }
+        });
     }
 
 

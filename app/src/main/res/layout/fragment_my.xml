@@ -28,19 +28,10 @@
                 android:text="我的"/>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView4"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="123dp"
-            android:src="@mipmap/login_icon" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="admin" />
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/logout_btn"
