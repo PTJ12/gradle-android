@@ -17,6 +17,16 @@ public class UserInfo {
     private String username;
     private String nickname;
     private long phone;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    private String avatar;
     private String password;
     private List<Roles> roles;
     private boolean enable;

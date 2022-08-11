@@ -6,27 +6,62 @@
     android:layout_height="wrap_content"
     tools:context=".ui.fragment.MyFragment">
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:background="@color/lavender">
 
 
-        <ImageView
-            android:id="@+id/imageView4"
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <ImageView
+                android:id="@+id/my_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical"
+
+                android:src="@mipmap/login_icon" />
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="123dp"
-            android:src="@mipmap/login_icon" />
-
-        <TextView
-            android:id="@+id/my_username"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/my_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:text="账号："/>
+                <TextView
+                    android:id="@+id/my_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
 
 
     </LinearLayout>

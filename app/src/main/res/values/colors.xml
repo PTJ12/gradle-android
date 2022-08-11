@@ -10,4 +10,6 @@
     <color name="gery">#EFEDED</color>
     <color name="brown">#80280D</color>
     <color name="brown_200">#9A300F</color>
+    <color name="navigation_bar">#778899</color>
+    <color name="lavender">#D3D3D3</color>
 </resources>

@@ -17,18 +17,19 @@ import cn.ut.application.R;
 import cn.ut.application.adapter.MyPageAdapter;
 import cn.ut.application.ui.base.BaseActivity;
 import cn.ut.application.ui.fragment.HomeFragment;
+import cn.ut.application.ui.fragment.ListFragment;
 import cn.ut.application.ui.fragment.MessageFragment;
 import cn.ut.application.ui.fragment.MyFragment;
 
 public class HomePageActivity extends BaseActivity {
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
-    private String[] mTitles = {"首页", "消息", "我的"};
+    private String[] mTitles = {"首页", "列表", "消息", "我的"};
     private int[] mIconUnselectIds = {
-            R.mipmap.tab_home_unselect, R.mipmap.tab_msg_unselect,
+            R.mipmap.tab_home_unselect, R.mipmap.tab_list_unselect, R.mipmap.tab_msg_unselect,
             R.mipmap.tab_my_unselect};
     private int[] mIconSelectIds = {
-            R.mipmap.tab_home_select, R.mipmap.tab_msg_select,
+            R.mipmap.tab_home_select, R.mipmap.tab_list_select, R.mipmap.tab_msg_select,
             R.mipmap.tab_my_select};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
@@ -49,6 +50,7 @@ public class HomePageActivity extends BaseActivity {
     @Override
     protected void initData() {
         mFragments.add(HomeFragment.newInstance());
+        mFragments.add(ListFragment.newInstance());
         mFragments.add(MessageFragment.newInstance());
         mFragments.add(MyFragment.newInstance());
         for (int i = 0; i < mTitles.length; i++) {

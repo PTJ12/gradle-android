@@ -66,6 +66,12 @@ public abstract class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
+    protected void navigateToWithBundle(Class cls, Bundle bundle) {
+        Intent intent = new Intent(getActivity(), cls);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     protected void navigateToWithFlag(Class cls, int flags){
         Intent intent = new Intent(getActivity(), cls);
         intent.setFlags(flags);
